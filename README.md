@@ -2,7 +2,7 @@
 
 ## Overview
 
-`env-list` is a command-line utility that parses and displays environment variables on macOS:
+`env-list` is a command-line utility that parses and displays environment variables on `macOS` and `Windows`:
 - all environment variables, 
 - a filtered list of common environment variables, 
 - or only the PATH variable.
@@ -48,7 +48,10 @@ Use the `-simple` (or `-s`) flag to display only common environment variables:
 `./env-list -s`
 
 > Common environment variables are: 
-> "PATH", "HOME", "SHELL", "USER", "LOGNAME", "LANG", "PWD", "OLDPWD", "SHLVL", "_", "TERM", "TMPDIR"
+> 
+> `MAC`: "PATH", "HOME", "SHELL", "USER", "LOGNAME", "LANG", "PWD", "OLDPWD", "SHLVL", "_", "TERM", "TMPDIR"
+> 
+> `WINDOWS`: "APPDATA", "COMPUTERNAME", "HOMEDRIVE", "HOMEPATH", "OS", "Path", "ProgramData", "ProgramFiles", "ProgramFiles(x86)", "SESSIONNAME", "SystemDrive", "USERDOMAIN", "USERPROFILE"
 
 ### Display Only the PATH Variable
 
@@ -56,7 +59,7 @@ Use the `-path` (or `-p`) flag to display only the PATH environment variable:
 
 `./env-list -p`
 
-## Example output
+## Example output (`-s` option)
 
 ```sh
 PATH:
