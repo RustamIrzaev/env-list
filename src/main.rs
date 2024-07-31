@@ -1,10 +1,11 @@
 mod cli;
-mod processing;
 mod display;
+mod processing;
 
+use crate::processing::{filter_env_vars, run_env_command};
 use clap::Parser;
 use cli::Cli;
-use crate::processing::{filter_env_vars, run_env_command};
+use colored::*;
 
 fn main() {
     let cli = Cli::parse();
@@ -12,10 +13,9 @@ fn main() {
     if cfg!(target_os = "macos") || cfg!(target_os = "windows") {
         match run_env_command() {
             Ok(result) => filter_env_vars(cli, result),
-            Err(e) => eprintln!("\x1b[31mError: {}\x1b[0m", e)
+            Err(e) => println!("{}", format!("Error: {}", e).red()),
         }
     } else {
-        eprintln!("\x1b[31mThis program can only run on macOS and Windows.\x1b[0m")
+        println!("{}", "This program can only run on macOS and Windows".red())
     }
 }
-
